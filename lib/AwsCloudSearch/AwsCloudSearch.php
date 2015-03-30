@@ -30,7 +30,7 @@ class AwsCloudSearch
     /**
      * Method date - API version?
      */
-    const METHOD_DATE = '2011-02-01';
+    const METHOD_DATE = '2013-01-01';
     /**
      * Search API endpoint path
      */
