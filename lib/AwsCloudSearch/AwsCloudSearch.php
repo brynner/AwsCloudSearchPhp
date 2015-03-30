@@ -225,9 +225,9 @@ class AwsCloudSearch
     {
         $params['q'] = $term;
 
-        if (!isset($params['return-fields']) && isset($this->searchableFields)) {
+        if (!isset($params['return']) && isset($this->searchableFields)) {
             $returnFields = $this->searchableFields;
-            $params['return-fields'] = implode(',', $this->searchableFields);
+            $params['return'] = implode(',', $this->searchableFields);
         }
 
         $url = $this->buildUrl(self::SEARCH_DOMAIN_PREFIX, self::SEARCH_PATH);
@@ -391,7 +391,7 @@ class AwsCloudSearch
     private function buildUrl($domainPrefix, $urlPath)
     {
         $url = self::PROTOCOL . '://' . $domainPrefix . '-'
-            . $this->domain . '.' . $this->serverLocation . '.'
+            . $this->domain . '-' . $this->serverLocation . '.'
             . self::CLOUDSEARCH_DOMAIN . '/'
             . self::METHOD_DATE . '/' . $urlPath;
 
